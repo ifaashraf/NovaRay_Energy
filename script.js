@@ -25,35 +25,39 @@ themeToggle.addEventListener('click', function () {
   applyTheme(current === 'night' ? 'day' : 'night');
 });
 
-// --- Solar bill calculator ---
-const slider = document.getElementById('billSlider');
-const billOutput = document.getElementById('billOutput');
+// --- Solar savings calculator (driven by data/savings.js) ---
+// The slider moves across an index into SAVINGS_TABLE rather than raw kW,
+// since system sizes jump non-linearly at the commercial/industrial tier
+// (3-20 kW step 1, then 30, 40, 50 ... 1000 kW).
+const slider = document.getElementById('sizeSlider');
+const sizeOutput = document.getElementById('sizeOutput');
+const tierBadge = document.getElementById('tierBadge');
+const tierNote = document.getElementById('tierNote');
 const yearlyEl = document.getElementById('yearlySavings');
 const lifetimeEl = document.getElementById('lifetimeSavings');
-const funFactEl = document.getElementById('funFact');
 
-const SAVINGS_RATE = 0.65; // playful estimate: solar offsets ~65% of your bill
-
-function funFact(yearly) {
-  if (yearly < 8000) return "That's a nice dinner out every month! 🍽️";
-  if (yearly < 20000) return "That's enough for a getaway to the hills every year! 🏞️";
-  if (yearly < 40000) return "That's a new phone AND a vacation! 📱✈️";
-  return "That's practically a second paycheck! 💸";
-}
+const COMMERCIAL_NOTE = "⚠️ For 30 kW and above (commercial/industrial), figures are rough estimates for marketing purposes only — actual savings depend heavily on the customer's electricity tariff and usage pattern.";
 
 function formatINR(amount) {
   return `₹${amount.toLocaleString('en-IN')}`;
 }
 
-function updateCalculator() {
-  const bill = Number(slider.value);
-  const yearly = Math.round(bill * 12 * SAVINGS_RATE);
-  const lifetime = yearly * 20;
+slider.max = SAVINGS_TABLE.length - 1;
 
-  billOutput.textContent = formatINR(bill);
-  yearlyEl.textContent = formatINR(yearly);
-  lifetimeEl.textContent = formatINR(lifetime);
-  funFactEl.textContent = funFact(yearly);
+function updateCalculator() {
+  const row = SAVINGS_TABLE[Number(slider.value)];
+
+  sizeOutput.textContent = `${row.kw} kW`;
+  yearlyEl.textContent = `${formatINR(row.min)} – ${formatINR(row.max)}`;
+  lifetimeEl.textContent = `${formatINR(row.min * 20)} – ${formatINR(row.max * 20)}`;
+
+  if (row.tier === 'commercial') {
+    tierBadge.textContent = '🏢 Commercial/Industrial';
+    tierNote.textContent = COMMERCIAL_NOTE;
+  } else {
+    tierBadge.textContent = '🏠 Residential';
+    tierNote.textContent = '';
+  }
 }
 
 slider.addEventListener('input', updateCalculator);

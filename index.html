@@ -49,27 +49,28 @@
   <!-- CALCULATOR -->
   <section class="calculator">
     <h2>☀️ See What You Could Save</h2>
-    <p class="calc-sub">Slide to your average monthly electric bill and watch the sunshine add up.</p>
+    <p class="calc-sub">Slide to a solar system size and see the estimated annual savings.</p>
 
     <div class="calc-card">
       <div class="calc-value">
-        <span>Monthly Bill:</span>
-        <strong id="billOutput">₹2,000</strong>
+        <span>System Size:</span>
+        <strong id="sizeOutput">5 kW</strong>
+        <span class="tier-badge" id="tierBadge">🏠 Residential</span>
       </div>
-      <input type="range" min="500" max="10000" step="100" value="2000" id="billSlider" class="slider" aria-label="Monthly electric bill">
+      <input type="range" min="0" max="27" step="1" value="2" id="sizeSlider" class="slider" aria-label="Solar system size">
 
       <div class="calc-results">
         <div class="result-box">
-          <span class="result-label">Estimated Yearly Savings</span>
-          <span class="result-value" id="yearlySavings">₹15,600</span>
+          <span class="result-label">Estimated Annual Savings</span>
+          <span class="result-value" id="yearlySavings">₹60,000 – ₹75,000</span>
         </div>
         <div class="result-box">
-          <span class="result-label">Over 20 Years</span>
-          <span class="result-value" id="lifetimeSavings">₹3,12,000</span>
+          <span class="result-label">Estimated 20-Year Savings</span>
+          <span class="result-value" id="lifetimeSavings">₹12,00,000 – ₹15,00,000</span>
         </div>
       </div>
-      <p class="calc-fun" id="funFact">That's enough for a nice getaway to the coast every year! 🌴</p>
-      <p class="calc-disclaimer">*Playful estimate for illustration only — your actual savings depend on usage, roof, and local rates. We'll crunch real numbers in your free consultation.</p>
+      <p class="calc-tier-note" id="tierNote"></p>
+      <p class="calc-disclaimer">Estimated annual savings are approximate. Actual savings depend on electricity consumption, KSEB tariff, net-metering regulations, roof conditions, and system performance.</p>
     </div>
   </section>
 
@@ -122,6 +123,7 @@
     <p class="gstin">GSTIN: 32BLFPM3329H1ZB</p>
   </footer>
 
+  <script src="data/savings.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

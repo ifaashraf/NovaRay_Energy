@@ -271,6 +271,7 @@ h1, h2, h3 {
   display: flex;
   align-items: baseline;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 16px;
   font-size: 1.1rem;
@@ -279,6 +280,35 @@ h1, h2, h3 {
 .calc-value strong {
   font-size: 1.6rem;
   color: var(--green-dark);
+}
+
+.tier-badge {
+  align-self: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--slate-600);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+
+.calc-tier-note {
+  font-size: 0.8rem;
+  color: var(--slate-600);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin: 12px 0 0;
+  line-height: 1.5;
+}
+
+.calc-tier-note:empty {
+  display: none;
+  padding: 0;
+  border: none;
+  margin: 0;
 }
 
 .slider {
@@ -340,21 +370,17 @@ h1, h2, h3 {
 
 .result-value {
   display: block;
-  font-size: 1.5rem;
+  font-size: clamp(1.05rem, 4vw, 1.5rem);
   font-weight: 800;
   color: var(--blue);
-}
-
-.calc-fun {
-  font-weight: 600;
-  color: var(--ink);
-  margin: 8px 0 4px;
+  word-break: break-word;
 }
 
 .calc-disclaimer {
   font-size: 0.78rem;
   color: var(--slate-400);
-  margin: 0;
+  margin: 16px 0 0;
+  line-height: 1.5;
 }
 
 /* ---------- FEATURES ---------- */
