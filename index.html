@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NovaRay Energy — Coming Soon</title>
+<meta name="description" content="NovaRay Energy is launching soon. Innovation in every ray — clean solar solutions for your home and business.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="assets/novaray-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Nunito:wght@400;600;700&family=Bitter:ital,wght@1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="bg-glow"></div>
+
+  <div class="solar-lights" aria-hidden="true">
+    <span class="solar-light" style="top:12%; left:8%;"></span>
+    <span class="solar-light" style="top:22%; left:88%;"></span>
+    <span class="solar-light" style="top:48%; left:4%;"></span>
+    <span class="solar-light" style="top:65%; left:93%;"></span>
+    <span class="solar-light" style="top:78%; left:15%;"></span>
+    <span class="solar-light" style="top:85%; left:70%;"></span>
+    <span class="solar-light" style="top:35%; left:50%;"></span>
+  </div>
+
+  <button id="themeToggle" class="theme-toggle" aria-label="Toggle day and night mode" title="Toggle day/night">
+    <span class="toggle-icon">☀️</span>
+    <span class="toggle-label">Day Mode</span>
+  </button>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="logo">
+      <img class="brand-logo brand-logo-day floating" src="assets/novaray-logo-full.png" alt="NovaRay Energy" width="280" height="151">
+      <img class="brand-logo brand-logo-night floating" src="assets/novaray-logo-mono.png" alt="NovaRay Energy" width="280" height="151">
+    </div>
+
+    <div class="badge">🚧 Under Construction</div>
+
+    <h1 class="tagline">Innovation in Every Ray</h1>
+    <p class="subtitle">Our full site is under construction, but exciting things are on the way. Get a sneak peek at how NovaRay Energy will power your home with clean, reliable solar.</p>
+
+    <a href="#notify" class="btn-glow">Notify Me at Launch</a>
+  </header>
+
+  <!-- CALCULATOR -->
+  <section class="calculator">
+    <h2>☀️ See What You Could Save</h2>
+    <p class="calc-sub">Slide to your average monthly electric bill and watch the sunshine add up.</p>
+
+    <div class="calc-card">
+      <div class="calc-value">
+        <span>Monthly Bill:</span>
+        <strong id="billOutput">₹2,000</strong>
+      </div>
+      <input type="range" min="500" max="10000" step="100" value="2000" id="billSlider" class="slider" aria-label="Monthly electric bill">
+
+      <div class="calc-results">
+        <div class="result-box">
+          <span class="result-label">Estimated Yearly Savings</span>
+          <span class="result-value" id="yearlySavings">₹15,600</span>
+        </div>
+        <div class="result-box">
+          <span class="result-label">Over 20 Years</span>
+          <span class="result-value" id="lifetimeSavings">₹3,12,000</span>
+        </div>
+      </div>
+      <p class="calc-fun" id="funFact">That's enough for a nice getaway to the coast every year! 🌴</p>
+      <p class="calc-disclaimer">*Playful estimate for illustration only — your actual savings depend on usage, roof, and local rates. We'll crunch real numbers in your free consultation.</p>
+    </div>
+  </section>
+
+  <!-- FEATURE CARDS -->
+  <section class="features">
+    <div class="feature-card">
+      <div class="feature-icon">💰</div>
+      <h3>Lower Energy Bills</h3>
+      <p>Cut your monthly electric bill dramatically with a solar system custom-sized for your home.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🌿</div>
+      <h3>Clean Renewable Power</h3>
+      <p>Power your life with 100% renewable sunshine and shrink your carbon footprint.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔋</div>
+      <h3>Battery Backup Options</h3>
+      <p>Stay powered through outages with smart battery storage add-ons built for resilience.</p>
+    </div>
+  </section>
+
+  <!-- LEAD CAPTURE -->
+  <section class="notify" id="notify">
+    <h2>Be First to Know</h2>
+    <p>Sign up now to hear when we launch — and lock in a free solar consultation.</p>
+
+    <form class="notify-form" id="notifyForm">
+      <input type="email" placeholder="you@email.com" required aria-label="Email address" id="email">
+      <button type="submit">Notify Me</button>
+    </form>
+    <p class="form-note" id="formNote"></p>
+
+    <div class="contact-card">
+      <div class="contact-info">
+        <a href="mailto:info@novarayenergy.in">📧 info@novarayenergy.in</a>
+        <a href="tel:+919633496863">📞 +91 96334 96863</a>
+      </div>
+      <p class="address">📍 1st Floor, Sayikamal Building, Idimuzhikkal, Chelembra, Ramanattukara, Malappuram – 673634</p>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="footer-line">&copy; <span id="year"></span> NovaRay Energy. All rights reserved. <span class="dot">·</span> <span class="maintenance-note">Under maintenance</span></p>
+    <p class="gstin">GSTIN: 32BLFPM3329H1ZB</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
