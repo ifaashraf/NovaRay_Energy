@@ -36,6 +36,17 @@ export default async function middleware(request) {
     if (guessed) headers.set('content-type', guessed);
   }
 
+  // A maintenance response must never be cached. Inheriting the origin
+  // static file's ETag/Cache-Control let Vercel's CDN treat this as
+  // revalidatable and keep re-serving an old cached copy (missing
+  // Content-Type) on ETag match, since the underlying file content
+  // doesn't change even when this middleware's code does.
+  headers.set('Cache-Control', 'no-store, must-revalidate');
+  headers.delete('etag');
+  headers.delete('last-modified');
+  headers.delete('age');
+  headers.delete('x-vercel-cache');
+
   return new Response(response.body, {
     status: 503,
     statusText: 'Service Unavailable',
