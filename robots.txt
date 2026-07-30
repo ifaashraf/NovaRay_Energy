@@ -1,0 +1,15 @@
+# NovaRay Energy
+#
+# The site currently has a <meta name="robots" content="noindex, nofollow">
+# tag on its page while under construction. Crawling is intentionally left
+# open here (not Disallow'd) so search engines can actually fetch the page
+# and see that noindex tag — blocking crawling in robots.txt can cause a
+# URL to still appear in search results (without content) since Google
+# never gets to read the noindex directive.
+#
+# Remove the noindex meta tag in index.html when the full site launches.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.novarayenergy.in/sitemap.xml
