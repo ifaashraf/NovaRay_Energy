@@ -31,9 +31,12 @@ export default async function middleware(request) {
   const headers = new Headers(response.headers);
   headers.set('Retry-After', '86400');
 
-  if (!headers.get('content-type')) {
-    const guessed = guessContentType(new URL(request.url).pathname);
-    if (guessed) headers.set('content-type', guessed);
+  const originalContentType = headers.get('content-type');
+  const guessed = guessContentType(new URL(request.url).pathname);
+  headers.set('X-Debug-Original-CT', originalContentType || '(none)');
+  headers.set('X-Debug-Guessed-CT', guessed || '(none)');
+  if (!originalContentType && guessed) {
+    headers.set('content-type', guessed);
   }
 
   // A maintenance response must never be cached. Inheriting the origin
